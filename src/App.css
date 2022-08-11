@@ -97,6 +97,25 @@
   text-align: left;
 }
 
+.book2{
+  max-width: 200px;
+  color: #202A44;
+  font-weight: bold;
+  text-align: left;
+  display: grid;
+  
+  margin-left: 50px;
+  margin-top: 20x;
+  margin-bottom: 40px;
+}
+
+.favbooks{
+  font-size: 20px;
+  color: #27285C;
+  margin-left: 45px;
+  margin-top: 10px;
+}
+
 .bookstore {
   display: flex;
   flex-wrap: wrap;
@@ -139,7 +158,9 @@
   font-size: medium;
   font-weight: normal;
   padding-top: 10px;
+  
 }
+
 
 .button_like{
   border-style: none;
