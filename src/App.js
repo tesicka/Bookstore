@@ -17,6 +17,7 @@ import picture8 from './image/EugeneO.jpg';
 import Bookstore from './components/Bookstore';
 import Favourites from './components/Favourites';
 import MenuDown from './components/MenuDown';
+import MenuDownFixed from './components/MenuDownFixed';
 import MenuUp from './components/MenuUp';
 import {BrowserRouter,Routes, Route} from 'react-router-dom';
 import { render } from '@testing-library/react';
@@ -104,14 +105,14 @@ function App() {
 
   function favouriteBooks(){
     
-    let favs = books.filter((book)=>book.counter>0);
+    let favs = books.filter((book)=>book.counter===1);
     setSelected(favs);
 
   }  
 
   function likeABook(title,author,id){
     console.log("Success");
-    alert("You liked: "+title+" written by "+author);
+    alert("Selected book: "+title+" written by "+author);
 
     books.forEach((book)=>{
       if(book.id==id){
@@ -131,14 +132,13 @@ function App() {
   return (
     <BrowserRouter>
        <MenuUp></MenuUp>
-       
 
        <Routes>
-        <Route path='/' element={<Bookstore books={books} Add={likeABook}></Bookstore>}/>
-        <Route path='/fav' element={<Favourites books={selectedBooks} />}/>
+        <Route path='/' element={<div><Bookstore books={books} Add={likeABook}></Bookstore><MenuDown></MenuDown> </div>}/>
+        <Route path='/fav' element={<div><Favourites books={selectedBooks} /><MenuDownFixed/></div> }/>
        </Routes>
      
-       <MenuDown></MenuDown>
+       
       
     </BrowserRouter>
   )
